@@ -1,0 +1,31 @@
+﻿@page
+@model ReportGenerator.Pages.Students.CreateModel
+@{
+}
+
+    <form method="post">
+        <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input id="first-name" name="firstName" type="text" />
+        </div>
+        <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input id="last-name" name="lastName" type="text" />
+        </div>
+        <div class="form-group">
+            <label for="father-name">Father Name</label>
+            <input id="father-name" name="fatherName" type="text" />
+        </div>
+        <div class="form-group">
+            <label for="group-name">Group Name</label>
+            <input id="group-name" name="groupName" type="text" />
+        </div>
+        <div class="form-group">
+            <label for="enter-date">Enter Date</label>
+            <input id="enter-date" name="enterDate" type="date" />
+        </div>
+
+        <input class="btn btn-success" type="submit" value="Create" />
+    </form>
+
+

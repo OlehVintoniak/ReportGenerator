@@ -1,13 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ReportGenerator.Models;
 
-namespace ReportGenerator.Data {
-  public class ApplicationDbContext : IdentityDbContext {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        : base(options) {
+namespace ReportGenerator.Data
+{
+    public class ApplicationDbContext : IdentityDbContext {
+
+        public DbSet<Student> Students { get; set; }
+
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+
+        }
     }
-  }
 }

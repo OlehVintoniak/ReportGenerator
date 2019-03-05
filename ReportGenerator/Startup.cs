@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ReportGenerator.Data;
+using ReportGenerator.Interfaces;
+using ReportGenerator.Services;
 using ReportGenerator.Utility;
 using System.IO;
 
@@ -43,6 +45,7 @@ namespace ReportGenerator {
       assemblyLoadContext.LoadUnmanagedLibrary(Path.Combine(Directory.GetCurrentDirectory(), "libwkhtmltox.dll"));
 
       services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
+      services.AddScoped<IStudentService, StudentService>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
