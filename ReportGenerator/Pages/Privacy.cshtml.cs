@@ -28,9 +28,10 @@ namespace ReportGenerator.Pages
         //Out = @"D:\PDFCreator\Employee_Report.pdf"  USE THIS PROPERTY TO SAVE PDF TO A PROVIDED LOCATION
       };
 
-      var objectSettings = new ObjectSettings {
+      var objectSettings = new ObjectSettings
+      {
         PagesCount = true,
-        HtmlContent = StudyReportGenerator.GetHtmlString(),//TemplateGenerator.GetHTMLString(),
+        HtmlContent = Utility.Content.GetTemplate("wwwroot/Reports/StudyReport/pdf.html"),//TemplateGenerator.GetHTMLString(),
         //Page = "https://code-maze.com/", USE THIS PROPERTY TO GENERATE PDF CONTENT FROM AN HTML PAGE
         WebSettings = { DefaultEncoding = "utf-8", UserStyleSheet = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Reports/StudyReport", "styles.css") },
         //HeaderSettings = { FontName = "Arial", FontSize = 9, Right = "Page [page] of [toPage]", Line = true },
