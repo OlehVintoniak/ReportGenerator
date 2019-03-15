@@ -14,5 +14,7 @@ namespace ReportGenerator.Interfaces
         Student Update(Student student);
 
         bool Delete(int id);
+
+        void DeleteAll();
     }
 }

@@ -13,13 +13,13 @@ namespace ReportGenerator.Models
         [Required]
         public string LastName { get; set; }
 
-        [Required]
         public string FatherName { get; set; }
 
-        [Required]
         public string GroupName { get; set; }
 
-        [Required]
         public DateTime EnterDate { get; set; }
+
+        [Required]
+        public int Course { get; set; }
     }
 }

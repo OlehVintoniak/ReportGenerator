@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ReportGenerator.Interfaces;
 using ReportGenerator.Models;
@@ -18,6 +19,18 @@ namespace ReportGenerator.Pages.Students
         public void OnGet()
         {
             _list = _studentService.GetAll();
+        }
+
+        public IActionResult OnPostDeleteAll()
+        {
+            _studentService.DeleteAll();
+            return RedirectToAction("OnGet");
+        }
+
+        public IActionResult OnGetDeleteById(int id)
+        {
+            _studentService.Delete(id);
+            return RedirectToAction("OnGet");
         }
     }
 }

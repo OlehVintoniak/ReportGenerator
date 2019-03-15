@@ -3,12 +3,56 @@
 @{
 }
 
-<a class="btn btn-primary"  asp-area="" asp-page="/Students/Create">Create Student</a>
-<ul>
-    @foreach (var student in Model._list)
-    {
-        <li>
-            @student.FirstName @student.LastName @student.FatherName
-        </li>
+<a class="btn btn-primary" asp-area="" asp-page="/Students/Create" style="margin-left: 45%;margin-top: 30px">Додати студента</a>
+<div style="margin-top: 30px">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Ім'я</th>
+                <th scope="col">Прізвище</th>
+                <th scope="col">По Батькові</th>
+                <th scope="col">Курс</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model._list)
+            {
+                <tr>
+                    <td>@student.FirstName</td>
+                    <td>@student.LastName</td>
+                    <td>@student.FatherName</td>
+                    <td>@student.Course</td>
+                    <td>
+                        <a asp-page-handler="deleteById" asp-route-id="@student.Id" class="btn btn-danger">Видалити</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @*<form asp-page-handler="deleteAll" method="post">*@
+        <button class="btn btn-danger" style="margin-left: 46%" onclick="confirmDelete()">Видалити всіх</button>
+    @*</form>*@
+</div>
+<script>
+    function confirmDelete() {
+        if (confirm("Ви дійсно хочете видалити всіх студентів?")) {
+            tochno();
+        } else {
+            return;
+        }
     }
-</ul>
+
+    function tochno() {
+        if (confirm("точно точно?")) {
+            $.ajax({
+                url: 'Students/DeleteAll',
+                method: 'POST'
+            }).done(function() {
+                alert('Added'); 
+            });
+        } else {
+            return;
+        }
+    }
+</script>

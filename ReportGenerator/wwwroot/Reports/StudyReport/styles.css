@@ -25,8 +25,12 @@
     text-align: right;
 }
 .center {
-    text-align: center;
+text-align: center;
 }
 .margin-bottom {
     margin-bottom: 25px;
+}
+.margin-right {
+    margin-right: 50 px;
+    text-align: right;
 }

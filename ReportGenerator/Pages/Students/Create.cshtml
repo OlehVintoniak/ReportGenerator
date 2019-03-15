@@ -2,30 +2,50 @@
 @model ReportGenerator.Pages.Students.CreateModel
 @{
 }
-
-    <form method="post">
-        <div class="form-group">
-            <label for="first-name">First Name</label>
-            <input id="first-name" name="firstName" type="text" />
+<div class="container">
+    <form method="post" class="form-horizontal">
+        <div style="margin-top: 30px; margin-bottom: 30px">
+            <div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Ім'я:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="firstName" placeholder="Введіть ім'я">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Прізвище:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="lastName" placeholder="Введіть прізвище">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">По Батькові:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="fatherName" placeholder="Введіть по батькові">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" style="margin-left: 15px">Курс:</label>
+                    <select id="course" name="course">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="last-name">Last Name</label>
-            <input id="last-name" name="lastName" type="text" />
-        </div>
-        <div class="form-group">
-            <label for="father-name">Father Name</label>
-            <input id="father-name" name="fatherName" type="text" />
-        </div>
-        <div class="form-group">
-            <label for="group-name">Group Name</label>
-            <input id="group-name" name="groupName" type="text" />
-        </div>
-        <div class="form-group">
-            <label for="enter-date">Enter Date</label>
-            <input id="enter-date" name="enterDate" type="date" />
-        </div>
-
-        <input class="btn btn-success" type="submit" value="Create" />
+        <input class="btn btn-success" type="submit" value="Додати в базу" />
     </form>
+</div>
+
 
 

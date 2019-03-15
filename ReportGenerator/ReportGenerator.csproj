@@ -15,6 +15,7 @@
 
 
   <ItemGroup>
+    <Folder Include="Pages\Reports\Study\" />
     <Folder Include="wwwroot\Reports\StudyReport\" />
   </ItemGroup>
 

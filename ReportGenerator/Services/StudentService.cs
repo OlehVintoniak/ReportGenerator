@@ -54,6 +54,7 @@ namespace ReportGenerator.Services
                 {
                     studentToUpdate.EnterDate = student.EnterDate;
                 }
+                
             }
             _context.Students.Update(student);
             _context.SaveChanges();
@@ -71,6 +72,12 @@ namespace ReportGenerator.Services
             _context.Students.Remove(studentToDelete);
             _context.SaveChanges();
             return true;
+        }
+
+        public void DeleteAll()
+        {
+            _context.Students.RemoveRange(_context.Students);
+            _context.SaveChanges();
         }
     }
 }
