@@ -1,4 +1,5 @@
-﻿using ReportGenerator.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using ReportGenerator.Data;
 using ReportGenerator.Interfaces;
 using ReportGenerator.Models;
 using System.Collections.Generic;
@@ -35,28 +36,7 @@ namespace ReportGenerator.Services
 
         public Student Update(Student student)
         {
-            var studentToUpdate = GetById(student.Id);
-            if (studentToUpdate != null)
-            {
-                if (!string.IsNullOrWhiteSpace(student.FirstName))
-                {
-                    studentToUpdate.FirstName = student.FirstName;
-                }
-                if (!string.IsNullOrWhiteSpace(student.LastName))
-                {
-                    studentToUpdate.LastName = student.LastName;
-                }
-                if (!string.IsNullOrWhiteSpace(student.FatherName))
-                {
-                    studentToUpdate.FatherName = student.FatherName;
-                }
-                if (student.EnterDate != null)
-                {
-                    studentToUpdate.EnterDate = student.EnterDate;
-                }
-                
-            }
-            _context.Students.Update(student);
+            _context.Entry(student).State = EntityState.Modified;
             _context.SaveChanges();
             return student;
         }
@@ -78,6 +58,13 @@ namespace ReportGenerator.Services
         {
             _context.Students.RemoveRange(_context.Students);
             _context.SaveChanges();
+        }
+
+        public List<Student> GetByCourse(int courseNumber)
+        {
+            return _context.Students
+                .Where(s => s.Course == courseNumber)
+                .ToList();
         }
     }
 }

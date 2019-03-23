@@ -1,9 +1,11 @@
-
+* {
+    box-sizing: border-box;
+}
 
 .A4 {
     width: 794px;   /* ширина */
     height: 1122px; /* высота */
-    padding: 76px 38px 76px 113px; /* внутренние отступы - верх, право, низ, лево */
+    padding: 76px 38px 76px 33px; /* внутренние отступы - верх, право, низ, лево */
     margin: 50px auto;  /* выравнивание по центру */
     background-color: white;  /* цвет фона в блоке */
     font-family:  "Times New Roman"; /* нужный шрифт */
@@ -31,6 +33,9 @@ text-align: center;
     margin-bottom: 25px;
 }
 .margin-right {
-    margin-right: 50 px;
+    margin-right: 50px;
     text-align: right;
+}
+.absolute {
+    position: absolute;
 }

@@ -32,5 +32,10 @@ namespace ReportGenerator.Pages.Students
             _studentService.Delete(id);
             return RedirectToAction("OnGet");
         }
+
+        public IActionResult OnGetUpdate(int id)
+        {
+            return RedirectToPage("Update", new { id = id });
+        }
     }
 }

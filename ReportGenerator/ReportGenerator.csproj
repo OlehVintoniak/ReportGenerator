@@ -6,16 +6,23 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Pages\Reports\**" />
+    <Content Remove="Pages\Reports\**" />
+    <EmbeddedResource Remove="Pages\Reports\**" />
+    <None Remove="Pages\Reports\**" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="DinkToPdf" Version="1.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
   </ItemGroup>
 
 
   <ItemGroup>
-    <Folder Include="Pages\Reports\Study\" />
     <Folder Include="wwwroot\Reports\StudyReport\" />
   </ItemGroup>
 

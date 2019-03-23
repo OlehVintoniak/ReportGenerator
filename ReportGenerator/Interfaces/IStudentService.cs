@@ -7,6 +7,8 @@ namespace ReportGenerator.Interfaces
     {
         List<Student> GetAll();
 
+        List<Student> GetByCourse(int courseNumber);
+
         Student GetById(int id);
 
         Student Create(Student student);

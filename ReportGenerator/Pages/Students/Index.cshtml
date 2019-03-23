@@ -13,6 +13,7 @@
                 <th scope="col">По Батькові</th>
                 <th scope="col">Курс</th>
                 <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -24,35 +25,17 @@
                     <td>@student.FatherName</td>
                     <td>@student.Course</td>
                     <td>
+                        <a asp-page-handler="update" asp-route-id="@student.Id" class="btn btn-primary">Редагувати</a>
+                    </td>
+                    <td>
                         <a asp-page-handler="deleteById" asp-route-id="@student.Id" class="btn btn-danger">Видалити</a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-    @*<form asp-page-handler="deleteAll" method="post">*@
-        <button class="btn btn-danger" style="margin-left: 46%" onclick="confirmDelete()">Видалити всіх</button>
-    @*</form>*@
+    <form asp-page-handler="deleteAll" method="post">
+        <button class="btn btn-danger" style="margin-left: 46%">Видалити всіх</button>
+    </form>
 </div>
-<script>
-    function confirmDelete() {
-        if (confirm("Ви дійсно хочете видалити всіх студентів?")) {
-            tochno();
-        } else {
-            return;
-        }
-    }
 
-    function tochno() {
-        if (confirm("точно точно?")) {
-            $.ajax({
-                url: 'Students/DeleteAll',
-                method: 'POST'
-            }).done(function() {
-                alert('Added'); 
-            });
-        } else {
-            return;
-        }
-    }
-</script>

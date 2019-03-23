@@ -8,6 +8,7 @@ namespace ReportGenerator.Pages.Students
     public class CreateModel : PageModel
     {
         private IStudentService _studentsService;
+        public Student _student;
 
         public CreateModel(IStudentService studentService)
         {
@@ -21,8 +22,14 @@ namespace ReportGenerator.Pages.Students
 
         public IActionResult OnPost(Student student)
         {
-            _studentsService.Create(student);
-            return RedirectToPage("Index");
+            _student = student;
+            if (ModelState.IsValid)
+            {
+                _studentsService.Create(student);
+                return RedirectToPage("Index");
+
+            }
+            return RedirectToPage("Create");
         }
     }
 }

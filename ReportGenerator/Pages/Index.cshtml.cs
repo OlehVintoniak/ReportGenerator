@@ -27,18 +27,26 @@ namespace ReportGenerator.Pages.Reports.Study
             _converter = converter;
         }
 
-        public void OnGet()
+        public void OnGet(int? courseNumber)
         {
-            Students = _studentService.GetAll();
+            if (courseNumber == null)
+            {
+                Students = new List<Student>();
+            }
+            else
+            {
+                Students = _studentService.GetByCourse(courseNumber.Value);
+            }
         }
 
         public IActionResult OnPost(StudyReportData reportData)
         {
             var student = _studentService.GetById(reportData.StudentId);
-            //var coursNumber = DateTime.Now.Year - student.EnterDate.Year;
             var coursNumber = student.Course;
             var daysAmount = (reportData.DateTo - reportData.DateFrom).Days;
             var html = Utility.Content.GetTemplate(_reportPath);
+            var monthFrom = reportData.DateFrom.Month.ToMonthName();
+            var monthTo = reportData.DateTo.Month.ToMonthName();
 
             html = html.Replace("{{name}}", $"{student.LastName} {student.FirstName} {student.FatherName}");
             html = html.Replace("{{organization name}}", reportData.OrganizationName);
@@ -46,11 +54,11 @@ namespace ReportGenerator.Pages.Reports.Study
             html = html.Replace("{{days}}", daysAmount.ToString());
 
             html = html.Replace("{{day}}", reportData.DateFrom.Day.ToString());
-            html = html.Replace("{{month}}", reportData.DateFrom.Month.ToString());
+            html = html.Replace("{{month}}", monthFrom);
             html = html.Replace("{{year}}", reportData.DateFrom.Year.ToString());
 
             html = html.Replace("{{day2}}", reportData.DateTo.Day.ToString());
-            html = html.Replace("{{month2}}", reportData.DateTo.Month.ToString());
+            html = html.Replace("{{month2}}", monthTo);
             html = html.Replace("{{year2}}", reportData.DateTo.Year.ToString());
 
             var file = _rGenerator.GenerateStudyReport(_reportPath, _stylesPath, html);
