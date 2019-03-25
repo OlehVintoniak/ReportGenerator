@@ -4,7 +4,7 @@ using ReportGenerator.Models;
 
 namespace ReportGenerator.Data
 {
-    public class ApplicationDbContext : IdentityDbContext {
+    public class ApplicationDbContext : DbContext {
 
         public DbSet<Student> Students { get; set; }
 
