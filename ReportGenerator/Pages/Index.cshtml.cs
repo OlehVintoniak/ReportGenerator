@@ -44,9 +44,10 @@ namespace ReportGenerator.Pages.Reports.Study
             var student = _studentService.GetById(reportData.StudentId);
             var coursNumber = student.Course;
             var daysAmount = (reportData.DateTo - reportData.DateFrom).Days;
-            var html = Utility.Content.GetTemplate(_reportPath);
             var monthFrom = reportData.DateFrom.Month.ToMonthName();
             var monthTo = reportData.DateTo.Month.ToMonthName();
+
+            var html = Utility.Content.GetTemplate(_reportPath);
 
             html = html.Replace("{{name}}", $"{student.LastName} {student.FirstName} {student.FatherName}");
             html = html.Replace("{{organization name}}", reportData.OrganizationName);

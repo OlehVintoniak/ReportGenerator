@@ -8,18 +8,18 @@ namespace ReportGenerator.Models
         public int Id { get; set; }
 
         [Required]
+        [StringLength(50)]
         public string FirstName { get; set; }
 
         [Required]
+        [StringLength(50)]
         public string LastName { get; set; }
 
+        [StringLength(50)]
         public string FatherName { get; set; }
 
-        public string GroupName { get; set; }
-
-        public DateTime EnterDate { get; set; }
-
         [Required]
+        [Range(1, 6)]
         public int Course { get; set; }
     }
 }

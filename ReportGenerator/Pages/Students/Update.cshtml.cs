@@ -12,6 +12,7 @@ namespace ReportGenerator.Pages.Students
 
         public Student _student;
         public List<int> _courses = new List<int>();
+
         public UpdateModel(IStudentService studentService)
         {
             _studentService = studentService;
@@ -32,7 +33,6 @@ namespace ReportGenerator.Pages.Students
             {
                 _studentService.Update(student);
                 return RedirectToPage("Index");
-
             }
             return RedirectToPage("Update");
         }
