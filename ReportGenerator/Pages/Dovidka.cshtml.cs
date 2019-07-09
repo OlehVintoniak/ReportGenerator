@@ -6,7 +6,6 @@ namespace ReportGenerator.Pages {
     public void OnGet(DovidkaData data) {
       ViewData["ViewData"] = data;
     }
-
   }
 
   public class DovidkaData {

@@ -1,5 +1,3 @@
-using DinkToPdf;
-using DinkToPdf.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -33,7 +31,6 @@ namespace ReportGenerator {
 
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-      services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
       services.AddScoped<IStudentService, StudentService>();
     }
 

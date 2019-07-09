@@ -25,21 +25,16 @@ namespace ReportGenerator.Pages.Reports.Study {
 
     public IActionResult OnPost(StudyReportData reportData) {
       var student = _studentService.GetById(reportData.StudentId);
-      var coursNumber = student.Course;
-      var daysAmount = (reportData.DateTo - reportData.DateFrom).Days;
-      var monthFrom = reportData.DateFrom.Month.ToMonthName();
-      var monthTo = reportData.DateTo.Month.ToMonthName();
-
       var data = new DovidkaData {
         Name = $"{student.LastName} {student.FirstName} {student.FatherName}",
         OrganizationName = reportData.OrganizationName,
-        Cours = coursNumber.ToString(),
-        Days = daysAmount.ToString(),
+        Cours = student.Course.ToString(),
+        Days = (reportData.DateTo - reportData.DateFrom).Days.ToString(),
         Day = reportData.DateFrom.Day.ToString(),
-        Month = monthFrom,
+        Month = reportData.DateFrom.Month.ToMonthName(),
         Year = reportData.DateFrom.Year.ToString(),
         Day2 = reportData.DateTo.Day.ToString(),
-        Month2 = monthTo,
+        Month2 = reportData.DateTo.Month.ToMonthName(),
         Year2 = reportData.DateTo.Year.ToString()
       };
       return RedirectToPage("Dovidka", data);
