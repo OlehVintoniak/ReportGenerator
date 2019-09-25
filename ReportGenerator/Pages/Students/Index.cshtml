@@ -8,8 +8,8 @@
     <table class="table">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">Ім'я</th>
                 <th scope="col">Прізвище</th>
+                <th scope="col">Ім'я</th>
                 <th scope="col">По Батькові</th>
                 <th scope="col">Курс</th>
                 <th scope="col"></th>
@@ -17,11 +17,10 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var student in Model._list)
-            {
+            @foreach (var student in Model._list) {
                 <tr>
-                    <td>@student.FirstName</td>
                     <td>@student.LastName</td>
+                    <td>@student.FirstName</td>
                     <td>@student.FatherName</td>
                     <td>@student.Course</td>
                     <td>

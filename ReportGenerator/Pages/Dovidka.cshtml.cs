@@ -13,6 +13,7 @@ namespace ReportGenerator.Pages {
     public string OrganizationName { get; set; }
     public string Cours { get; set; }
     public string Days { get; set; }
+    public string DaysWord { get; set; }
     public string Day { get; set; }
     public string Month { get; set; }
     public string Year { get; set; }
